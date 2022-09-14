@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corses memo</title>
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap");
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+      }
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #5c6686;
+        height: 100%;
+        width: 250px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        padding: 2rem 0rem;
+        box-sizing: border-box;
+      }
+      .button {
+        background: none;
+        border: none;
+        color: green;
+        font-size: 1, 25rem;
+        cursor: pointer;
+      }
+      .nav {
+        width: 100%;
+      }
+      .nav__list {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        list-style: none;
+      }
+      .nav__link {
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: aliceblue;
+      }
+      .nav__link--active {
+        color: #000;
+      }
+      .nav__item {
+        border-left: 4px solid transparent;
+        padding-left: 25%;
+      }
+      .nav__item--active {
+        border-color: #000;
+      }
+      .nav__item:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      .nav__item:hover {
+        background: #12182c;
+        border-left: 1px solid #010307;
+      }
+      .content {
+        border-right: 1px solid #5c6686;
+        margin-left: 250px;
+        padding: 1rem;
+        height: 100%;
+        width: 700px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .content__addres {
+        width: 100%;
+        height: 45px;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .content__nameinfo {
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+      }
+      .content__name {
+        margin-left: 10px;
+      }
+      .content__atatar {
+        color: rgb(0, 0, 0);
+        text-align: center;
+        background: #18865c;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content__fullname {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .content__address {
+        font-size: 9px;
+      }
+      .content__search {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+      .courses {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        padding-left: 15px;
+      }
+      .buttons {
+        display: flex;
+        padding-top: 5px;
+      }
+      .buttons__section{
+        padding: 10px 0 10px 10px;
+        font-size: 14px;
+      }
+      .info{
+        display: flex;
+        flex-direction: column;
+      }
+      .info__java{
+        display: flex;
+        width: 100%;
+        padding: 0px;
+        border: 1px solid rgb(160, 158, 158);
+        height: 100px;
+        margin: 6px 0px 6px 0px;
+      }
+      .info__image--green{
+        background: green;
+        width: 160px;
+        height: 100px;
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-250px);
+          transition: all 0.5s ease-out;
+        }
+        .sidebar--open {
+          transform: none;
+        }
+        main {
+          margin: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <figure class="picture">
+        <img
+          class="logo"
+          src="https://via.placeholder.com/120x40
+            "
+          alt=""
+        />
+      </figure>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item nav__item--active">
+            <a class="nav__link nav__link--active" href="">
+              <span class="icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="nav__text"> Corses </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="">
+              <span class="icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="nav__text"> Corses </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="">
+              <span class="icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="nav__text"> Corses </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="">
+              <span class="icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="nav__text"> Corses </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="">
+              <span class="icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="nav__text"> Corses </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="">
+              <span class="icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="nav__text"> Corses </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="button">
+        <span class="icon">
+          <i class="las la-sign-out-alt"></i>
+          Log out
+        </span>
+      </button>
+    </aside>
+    <!-- <p onclick="toggleMenu()"></p> -->
+    <main>
+      <section class="content">
+        <header class="content__addres">
+          <div class="content__nameinfo">
+            <div class="content__logo">
+              <div class="content__atatar">
+                <i class="las la-user-circle"></i>
+              </div>
+            </div>
+            <div class="content__name">
+              <div class="content__fullname">Leslie Alexander</div>
+              <div class="content__address">Los Angekes,CA</div>
+            </div>
+          </div>
+          <div class="content__search">
+            <nav class="content__searching">
+              <input type="text" placeholder="Search" size="10" />
+            </nav>
+            <button class="content__searchbutton">
+              <i class="las la-search"></i>
+            </button>
+          </div>
+        </header>
+        <div class="courses">
+          <div class="courses__names">Courses</div>
+          <div class="courses__seeall">
+            <a href="" style="text-decoration: none">See all</a>
+          </div>
+        </div>
+        <nav class="buttons">
+          <div class="buttons__section">
+            <a href="" style="text-decoration: none">ALL</a>
+          </div>
+          <div class="buttons__section">
+            <a href="" style="text-decoration: none">Current</a>
+          </div>
+          <div class="buttons__section">
+            <a href="" style="text-decoration: none">Pending</a>
+          </div>
+          <div class="buttons__section">
+            <a href="" style="text-decoration: none">Complited</a>
+          </div>
+        </nav>
+        <div class="info">
+            <div class="info__java">
+                <div class="info__image">
+                    <div class="info__image--green"></div>
+                </div>
+            </div>
+            <div class="info__java">
+                <div class="info__image">
+                    <div class="info__image--green"></div>
+                </div>
+            </div>
+            <div class="info__java">
+                <div class="info__image">
+                    <div class="info__image--green"></div>
+                </div>
+            </div>
+            <div class="info__java">
+                <div class="info__image">
+                    <div class="info__image--green"></div>
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        var sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("sidebar--open");
+      }
+    </script>
+  </body>
+</html>
