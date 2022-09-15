@@ -15,6 +15,10 @@
         font-family: "Roboto", sans-serif;
         margin: 0;
       }
+      main{
+        display: flex;
+        justify-content: center;
+      }
       .sidebar {
         position: fixed;
         left: 0;
@@ -142,13 +146,46 @@
         width: 100%;
         padding: 0px;
         border: 1px solid rgb(160, 158, 158);
-        height: 100px;
+        height: 105px;
         margin: 6px 0px 6px 0px;
       }
       .info__image--green{
         background: green;
         width: 160px;
-        height: 100px;
+        height: 105px;
+      }
+      .calendar {
+        padding: 0;
+        display: flex;
+        width: 365px;
+        flex-wrap: wrap;
+      }
+      .calendar__item{
+        list-style: none;
+        width: calc(100%/7);
+        aspect-ratio: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .calendar__item--bold{
+        font-weight: 600;
+      }
+      .calendar__item--grey{
+        color: gray;
+      }
+      .calendar__item--active {
+        background: #000;
+        color: #fff;
+        border-radius: 10%;
+      }
+      .calendar__item--small {
+        font-size: .75rem;
+      }
+      .calendar__item:not(.calendar__item--bold):hover{
+        background: #5c6686;
+        cursor: pointer;
+        border-radius: 10%;
       }
 
       @media (max-width: 768px) {
@@ -236,7 +273,7 @@
       </button>
     </aside>
     <!-- <p onclick="toggleMenu()"></p> -->
-    <main>
+    <main onclick="toggleMenu()">
       <section class="content">
         <header class="content__addres">
           <div class="content__nameinfo">
@@ -302,8 +339,49 @@
             </div>
         </div>
       </section>
-    </main>
+      <section>
+        <h2 class="subtitle">Schedule</h2>
+        <ul class="calendar">
+            <li class="calendar__item calendar__item--bold calendar__item--small">Sun</li>
+            <li class="calendar__item calendar__item--bold calendar__item--small">Mon</li>
+            <li class="calendar__item calendar__item--bold calendar__item--small">Tue</li>
+            <li class="calendar__item calendar__item--bold calendar__item--small">Wed</li>
+            <li class="calendar__item calendar__item--bold calendar__item--small">Thu</li>
+            <li class="calendar__item calendar__item--bold calendar__item--small">Fri</li>
+            <li class="calendar__item calendar__item--bold calendar__item--small">Sat</li>
+            <li class="calendar__item calendar__item--grey">1</li>
+            <li class="calendar__item calendar__item--grey">2</li>
+            <li class="calendar__item calendar__item--grey">3</li>
+            <li class="calendar__item calendar__item--grey">4</li>
+            <li class="calendar__item">5</li>
+            <li class="calendar__item">6</li>
+            <li class="calendar__item">7</li>
+            <li class="calendar__item">8</li>
+            <li class="calendar__item">9</li>
+            <li class="calendar__item">10</li>
+            <li class="calendar__item">11</li>
+            <li class="calendar__item">12</li>
+            <li class="calendar__item">13</li>
+            <li class="calendar__item">14</li>
+            <li class="calendar__item">15</li>
+            <li class="calendar__item calendar__item--active">16</li>
+            <li class="calendar__item">17</li>
+            <li class="calendar__item">18</li>
+            <li class="calendar__item">19</li>
+            <li class="calendar__item">20</li>
+            <li class="calendar__item">21</li>
+            <li class="calendar__item">22</li>
+            <li class="calendar__item">23</li>
+            <li class="calendar__item">24</li>
+            <li class="calendar__item">25</li>
+            <li class="calendar__item">26</li>
+            <li class="calendar__item">27</li>
+            <li class="calendar__item">28</li>
+        </ul>
+    </section>
 
+      </main>
+   
     <script>
       function toggleMenu() {
         var sidebar = document.querySelector(".sidebar");
