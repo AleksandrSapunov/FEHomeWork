@@ -15,11 +15,13 @@
         font-family: "Roboto", sans-serif;
         margin: 0;
       }
-      main{
+      main {
         display: flex;
         justify-content: center;
+        height: 100%;
       }
       .sidebar {
+        user-select: none;
         position: fixed;
         left: 0;
         top: 0;
@@ -36,9 +38,17 @@
       .button {
         background: none;
         border: none;
-        color: green;
+        color: rgb(255, 255, 255);
         font-size: 1, 25rem;
         cursor: pointer;
+      }
+      h3,
+      h2{
+        font-weight: 400;
+      }
+      .logo{
+        height: 40px;
+        width: 120px;
       }
       .nav {
         width: 100%;
@@ -80,7 +90,7 @@
         background: #fff;
         display: flex;
         flex-direction: column;
-        position: relative;
+        position: static;
       }
       .content__addres {
         width: 100%;
@@ -133,15 +143,15 @@
         display: flex;
         padding-top: 5px;
       }
-      .buttons__section{
+      .buttons__section {
         padding: 10px 0 10px 10px;
         font-size: 14px;
       }
-      .info{
+      .info {
         display: flex;
         flex-direction: column;
       }
-      .info__java{
+      .info__java {
         display: flex;
         width: 100%;
         padding: 0px;
@@ -149,10 +159,14 @@
         height: 105px;
         margin: 6px 0px 6px 0px;
       }
-      .info__image--green{
+      .info__image--green {
         background: green;
         width: 160px;
         height: 105px;
+      }
+      .dates {
+        display: flex;
+        flex-direction: column;
       }
       .calendar {
         padding: 0;
@@ -160,18 +174,19 @@
         width: 365px;
         flex-wrap: wrap;
       }
-      .calendar__item{
+      .calendar__item {
         list-style: none;
-        width: calc(100%/7);
+        width: calc(100% / 7);
         aspect-ratio: 1.5;
         display: flex;
         justify-content: center;
         align-items: center;
+        user-select: none;
       }
-      .calendar__item--bold{
+      .calendar__item--bold {
         font-weight: 600;
       }
-      .calendar__item--grey{
+      .calendar__item--grey {
         color: gray;
       }
       .calendar__item--active {
@@ -180,18 +195,92 @@
         border-radius: 10%;
       }
       .calendar__item--small {
-        font-size: .75rem;
+        font-size: 0.75rem;
       }
-      .calendar__item:not(.calendar__item--bold):hover{
+      .calendar__item:not(.calendar__item--bold):hover {
         background: #5c6686;
         cursor: pointer;
         border-radius: 10%;
+      }
+      .upcoming {
+        width: 94%;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0% 3% 0% 3%;
+      }
+      .container{
+        user-select: none;
+        height: 350px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        position: relative;
+        padding-left: 3px;
+      }
+      .timeline{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .timeline__line{
+        height: 2px;
+        background: rgb(143, 140, 140);
+        width: 85%;
+       
+      }
+      .lesson{
+        list-style: none;
+        user-select: none;
+        background: #c1c1c1;
+        height: 35px;
+        width: 85%;
+        position: absolute;
+        left: 15%;
+        display: flex;
+        align-items: center;
+        padding-left: 3px;
+      }
+      .lesson__10h{
+        top: -12px;
+        user-select: none;
+      }
+      .lesson__13h{
+        top: calc(350px /17*5 );
+      }
+      .lesson__16h{
+        top: calc(350px /19*12 );
+      }
+      .icons{
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: orange;
+        color: #fff;
+      }
+      .timetable__time{
+        font-size: .5rem;
+        padding-left: 6px;
+      }
+      .timetable__event{
+        font-size: .85rem;
+        padding-left: 6px;
+      }
+      .shedule{
+        margin: 0% 3% 0% 3%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
       @media (max-width: 768px) {
         .sidebar {
           transform: translateX(-250px);
           transition: all 0.5s ease-out;
+          position: absolute;
         }
         .sidebar--open {
           transform: none;
@@ -199,6 +288,14 @@
         main {
           margin: 0;
           width: 100%;
+          height: 100%;
+          transform:rotate(+250px);
+        }
+        .dates{
+            display: none;
+        }
+        .content{
+            margin-left: 0;
         }
       }
     </style>
@@ -208,7 +305,7 @@
       <figure class="picture">
         <img
           class="logo"
-          src="https://via.placeholder.com/120x40
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK5H48pWaFgAWAMcBS1Q9jjO5Vz1ydeLsQZg&usqp=CAU
             "
           alt=""
         />
@@ -272,7 +369,6 @@
         </span>
       </button>
     </aside>
-    <!-- <p onclick="toggleMenu()"></p> -->
     <main onclick="toggleMenu()">
       <section class="content">
         <header class="content__addres">
@@ -317,71 +413,173 @@
           </div>
         </nav>
         <div class="info">
-            <div class="info__java">
-                <div class="info__image">
-                    <div class="info__image--green"></div>
-                </div>
+          <div class="info__java">
+            <div class="info__image">
+              <div class="info__image--green"></div>
             </div>
-            <div class="info__java">
-                <div class="info__image">
-                    <div class="info__image--green"></div>
-                </div>
+          </div>
+          <div class="info__java">
+            <div class="info__image">
+              <div class="info__image--green"></div>
             </div>
-            <div class="info__java">
-                <div class="info__image">
-                    <div class="info__image--green"></div>
-                </div>
+          </div>
+          <div class="info__java">
+            <div class="info__image">
+              <div class="info__image--green"></div>
             </div>
-            <div class="info__java">
-                <div class="info__image">
-                    <div class="info__image--green"></div>
-                </div>
+          </div>
+          <div class="info__java">
+            <div class="info__image">
+              <div class="info__image--green"></div>
             </div>
+          </div>
         </div>
       </section>
-      <section>
-        <h2 class="subtitle">Schedule</h2>
-        <ul class="calendar">
-            <li class="calendar__item calendar__item--bold calendar__item--small">Sun</li>
-            <li class="calendar__item calendar__item--bold calendar__item--small">Mon</li>
-            <li class="calendar__item calendar__item--bold calendar__item--small">Tue</li>
-            <li class="calendar__item calendar__item--bold calendar__item--small">Wed</li>
-            <li class="calendar__item calendar__item--bold calendar__item--small">Thu</li>
-            <li class="calendar__item calendar__item--bold calendar__item--small">Fri</li>
-            <li class="calendar__item calendar__item--bold calendar__item--small">Sat</li>
-            <li class="calendar__item calendar__item--grey">1</li>
-            <li class="calendar__item calendar__item--grey">2</li>
-            <li class="calendar__item calendar__item--grey">3</li>
-            <li class="calendar__item calendar__item--grey">4</li>
-            <li class="calendar__item">5</li>
-            <li class="calendar__item">6</li>
-            <li class="calendar__item">7</li>
-            <li class="calendar__item">8</li>
-            <li class="calendar__item">9</li>
-            <li class="calendar__item">10</li>
-            <li class="calendar__item">11</li>
-            <li class="calendar__item">12</li>
-            <li class="calendar__item">13</li>
-            <li class="calendar__item">14</li>
-            <li class="calendar__item">15</li>
-            <li class="calendar__item calendar__item--active">16</li>
-            <li class="calendar__item">17</li>
-            <li class="calendar__item">18</li>
-            <li class="calendar__item">19</li>
-            <li class="calendar__item">20</li>
-            <li class="calendar__item">21</li>
-            <li class="calendar__item">22</li>
-            <li class="calendar__item">23</li>
-            <li class="calendar__item">24</li>
-            <li class="calendar__item">25</li>
-            <li class="calendar__item">26</li>
-            <li class="calendar__item">27</li>
-            <li class="calendar__item">28</li>
-        </ul>
-    </section>
+      <section class="dates">
+        <div class="shedule">
+            <h2 class="subtitle">Schedule</h2>
+            <select name="Month" id="">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        
 
-      </main>
-   
+        <ul class="calendar">
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Sun
+          </li>
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Mon
+          </li>
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Tue
+          </li>
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Wed
+          </li>
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Thu
+          </li>
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Fri
+          </li>
+          <li class="calendar__item calendar__item--bold calendar__item--small">
+            Sat
+          </li>
+          <li class="calendar__item calendar__item--grey">1</li>
+          <li class="calendar__item calendar__item--grey">2</li>
+          <li class="calendar__item calendar__item--grey">3</li>
+          <li class="calendar__item calendar__item--grey">4</li>
+          <li class="calendar__item">5</li>
+          <li class="calendar__item">6</li>
+          <li class="calendar__item">7</li>
+          <li class="calendar__item">8</li>
+          <li class="calendar__item">9</li>
+          <li class="calendar__item">10</li>
+          <li class="calendar__item">11</li>
+          <li class="calendar__item">12</li>
+          <li class="calendar__item">13</li>
+          <li class="calendar__item">14</li>
+          <li class="calendar__item">15</li>
+          <li class="calendar__item calendar__item--active">16</li>
+          <li class="calendar__item">17</li>
+          <li class="calendar__item">18</li>
+          <li class="calendar__item">19</li>
+          <li class="calendar__item">20</li>
+          <li class="calendar__item">21</li>
+          <li class="calendar__item">22</li>
+          <li class="calendar__item">23</li>
+          <li class="calendar__item">24</li>
+          <li class="calendar__item">25</li>
+          <li class="calendar__item">26</li>
+          <li class="calendar__item">27</li>
+          <li class="calendar__item">28</li>
+        </ul>
+        <section class="upcoming">
+            <h3>Upcoming</h3>
+            <i class="las la-ellipsis-h"></i>
+        </section>
+        <section class="container">
+          
+            <ul class="lesson lesson__10h">
+                <span class="icons">
+                    <i class="las la-smile"></i>
+                </span>
+                <li class="timetable">
+                    <time class="timetable__time">10:00 - 10:30</time>
+                    <div class="timetable__event">User Interface Design</div>
+                </li>
+
+            </ul>
+            <ul class="lesson lesson__13h">
+                <span class="icons">
+                    <i class="las la-helicopter"></i>
+                </span>
+                <li class="timetable">
+                    <time class="timetable__time">13:00 - 13:30</time>
+                    <div class="timetable__event">Programming in Java</div>
+                </li>
+            </ul>
+            <ul class="lesson lesson__16h">
+                <span class="icons">
+                    <i class="lab la-accessible-icon"></i>
+                </span>
+                <li class="timetable">
+                    <time class="timetable__time">16:00 - 16:30</time>
+                    <div class="timetable__event">The Strategy of Marketing</div>
+                </li>
+            </ul>
+          <li class="timeline">
+            <time class="timeline__time">10:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">11:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">12:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">13:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">14:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">15:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">16:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">17:00</time>
+            <span class="timeline__line"></span>
+          </li>
+          <li class="timeline">
+            <time class="timeline__time">18:00</time>
+            <span class="timeline__line"></span>
+          </li>
+        </section>
+      </section>
+    </main>
+
     <script>
       function toggleMenu() {
         var sidebar = document.querySelector(".sidebar");
