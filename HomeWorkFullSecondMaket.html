@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inBoxLesson</title>
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap");
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      main {
+        height: 100%;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #b5bbc0;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem 0rem 1rem 1rem;
+        user-select: none;
+      }
+      .logo {
+        height: 50px;
+        width: 100px;
+        border-radius: 50%;
+        border: solid rgb(35, 156, 172);
+      }
+      .menu__item {
+        margin-bottom: 0.2rem;
+        height: 5vh;
+      }
+      .menu__item:hover {
+        background: #727a97;
+        border-right: 3px solid #6d0a0a;
+        border-radius: 7px 0 0 7px;
+      }
+      .menu__link {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: rgb(3, 6, 8);
+      }
+      .menu__item--active {
+        background: #727a97;
+        border-right: 4px solid #a51111;
+        border-radius: 7px 0 0 7px;
+      }
+      .menu__list--active {
+        color: rgb(12, 12, 184);
+      }
+      .menu__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .projects__title {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: rgb(88, 86, 86);
+      }
+      .projects__list {
+        padding-left: 5px;
+      }
+      .projects {
+        text-decoration: none;
+        color: rgb(3, 6, 8);
+      }
+      .projects__list {
+        cursor: pointer;
+      }
+      .projects__button {
+        width: 150px;
+        height: 30px;
+        border-radius: 10px;
+        color: #6d0a0a;
+      }
+      .projects__button:hover {
+        background: #1534a7;
+        cursor: pointer;
+      }
+      .inbox {
+        background: #fcfcfc;
+        border-right: 1px solid gray;
+        width: 300px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 200px;
+        padding: 0rem 1rem;
+      }
+      .titl {
+        display: flex;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .titl__button {
+        height: 30px;
+        margin-top: 20px;
+      }
+      .inbox__navigation {
+        display: flex;
+        justify-content: center;
+        height: 35px;
+      }
+      .contacts {
+        flex-direction: column;
+        margin-top: 15px;
+        overflow-y: scroll;
+        height: 550px;
+      }
+      .contacts::-webkit-scrollbar {
+        display: none;
+      }
+
+      .contacts__list {
+        height: 70px;
+        width: 250px;
+        background: #8c93aa;
+        margin-bottom: 10px;
+        border-radius: 7px;
+      }
+      .chat {
+        background: #fcfcfc;
+        border-right: 1px solid gray;
+        width: 800px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 500px;
+      }
+      .name {
+        width: 100%;
+        height: 45px;
+        margin-top: 15px;
+        border-bottom: 1px solid gray;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        padding-right: 15px;
+      }
+      .name__nameinfo {
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+      }
+      .name__name {
+        margin-left: 10px;
+      }
+      .name__avatar {
+        color: rgb(0, 0, 0);
+        text-align: center;
+        background: #697b86;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .name__fullname {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .name__status {
+        font-size: 9px;
+      }
+      .name__search {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+      .buttons {
+        display: flex;
+        padding-top: 5px;
+      }
+      .name__section {
+        padding: 10px 0 10px 10px;
+        font-size: 14px;
+      }
+      .text {
+        width: 100%;
+        height: 540px;
+        border-bottom: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(300deg, #5e7f8a6e, transparent);
+        overflow-y: scroll;
+      }
+      .text::-webkit-scrollbar {
+        display: none;
+      }
+      .text__massege {
+        background: #526196;
+        height: 20px;
+        width: 200px;
+        margin-bottom: 0.5rem;
+      }
+      .panel {
+        background: #fcfcfc;
+        width: 48px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 1300px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <figure>
+        <img
+          class="logo"
+          src="https://st2.depositphotos.com/6995204/42104/v/600/depositphotos_421043906-stock-illustration-modern-creative-graphic-design-word.jpg
+            "
+          alt=""
+        />
+      </figure>
+      <nav class="menu">
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a class="menu__link" href="">
+              <span class="menu__icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="menu__text">Dashboard</span>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="">
+              <span class="menu__icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="menu__text">Statistic</span>
+            </a>
+          </li>
+          <li class="menu__item menu__item--active">
+            <a class="menu__link menu__list--active" href="">
+              <span class="menu__icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="menu__text">Support</span>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="">
+              <span class="menu__icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="menu__text">Inbox</span>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="">
+              <span class="menu__icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="menu__text">Goals</span>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="">
+              <span class="menu__icon">
+                <i class="las la-paste"></i>
+              </span>
+              <span class="menu__text">Links</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <section class="projects">
+        <h4 class="projects__title">PROJECTS</h4>
+        <ul class="projects__list">
+          Callipso
+        </ul>
+        <ul class="projects__list">
+          BWS bank
+        </ul>
+        <ul class="projects__list">
+          Unicorn app
+        </ul>
+        <ul class="projects__list">
+          Salt
+        </ul>
+        <button class="projects__button">Show more</button>
+      </section>
+    </aside>
+    <main>
+      <div class="inbox">
+        <header class="titl">
+          <h1 class="titl__name">Inbox</h1>
+          <button class="titl__button">+</button>
+        </header>
+        <div class="inbox__navigation">
+          <button class="inbox__navigation--left">General</button>
+          <button class="inbox__navigation--right">Total</button>
+        </div>
+        <section class="contacts">
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+        </section>
+      </div>
+      <div class="chat">
+        <header class="name">
+          <div class="name__nameinfo">
+            <div class="name__logo">
+              <div class="name__avatar"></div>
+            </div>
+            <div class="name__name">
+              <div class="name__fullname">Michael.B</div>
+              <div class="name__status">Online</div>
+            </div>
+          </div>
+          <div class="name__search">
+            <nav class="name__searching">
+              <input type="text" placeholder="Search" size="10" />
+            </nav>
+            <button class="name__searchbutton">
+              <i class="las la-microphone"></i>
+              <i class="las la-video"></i>
+            </button>
+          </div>
+        </header>
+        <section class="text">
+          <div class="text__massege">2342</div>
+          <div class="text__massege">sdvsvd</div>
+          <div class="text__massege">sdvsdv</div>
+          <div class="text__massege">scscdc</div>
+          <div class="text__massege">1213</div>
+          <div class="text__massege">6566</div>
+          <div class="text__massege">vbcbc</div>
+          <div class="text__massege">vcbcvb</div>
+          <div class="text__massege">vbxcvx</div>
+          <div class="text__massege">bxbxbvx</div>
+          <div class="text__massege">xbxcv</div>
+          <div class="text__massege">xbxcvx</div>
+          <div class="text__massege">xbxv</div>
+          <div class="text__massege">xbx</div>
+          <div class="text__massege">bx xv</div>
+          <div class="text__massege">vbcbc</div>
+          <div class="text__massege">vcbcvb</div>
+          <div class="text__massege">vbxcvx</div>
+          <div class="text__massege">bxbxbvx</div>
+          <div class="text__massege">xbxcv</div>
+          <div class="text__massege">xbxcvx</div>
+          <div class="text__massege">xbxv</div>
+          <div class="text__massege">xbx</div>
+          <div class="text__massege">bx xv</div>
+          <div class="text__massege">vbcbc</div>
+          <div class="text__massege">vcbcvb</div>
+          <div class="text__massege">vbxcvx</div>
+          <div class="text__massege">bxbxbvx</div>
+          <div class="text__massege">xbxcv</div>
+          <div class="text__massege">xbxcvx</div>
+          <div class="text__massege">xbxv</div>
+          <div class="text__massege">xbx</div>
+          <div class="text__massege">bx xv</div>
+        </section>
+      </div>
+      <div class="panel"></div>
+    </main>
+  </body>
+</html>
