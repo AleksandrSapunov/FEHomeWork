@@ -29,13 +29,14 @@
       }
       body {
         margin: 0;
+        background-color: aqua;
       }
       header {
         background: grey;
         grid-area: header;
       }
       aside {
-        background: green;
+        background: rgb(131, 75, 3);
         grid-area: aside;
       }
       main {
@@ -47,7 +48,7 @@
         grid-area: nav;
       }
       div {
-        background: rgb(16, 139, 43);
+        background: rgb(147, 156, 18);
         grid-area: div;
       }
       .div1 {
@@ -55,8 +56,8 @@
         grid-area: div1;
       }
       .div2 {
-        background: rgb(95, 146, 61);
-        grid-area: div;
+        background: rgb(37, 2, 102);
+        grid-area: div2;
       }
       footer {
         background: red;
@@ -64,19 +65,20 @@
       }
       menu {
         background: rgb(175, 18, 104);
-        grid-area: div;
+        grid-area: menu;
         margin: 0;
       }
       .wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 150px 200px 200px auto;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-template-areas:
           "nav header header div"
           "aside main main menu"
           "aside div1 div2 menu"
           "footer footer footer menu";
         gap: 10px;
+        
       }
     </style>
   </head>
