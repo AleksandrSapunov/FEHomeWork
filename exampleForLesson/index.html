@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Example</title>
+
+    <style>
+        html,
+        body,
+        .wrapper {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            background: grey;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 150px 1fr 1fr 150px;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-areas: 
+                "banner1 header header banner2"
+                "sidebar1 main1 main1 sidebar2"
+                "sidebar1 main2 main3 sidebar2"
+                "footer footer footer sidebar2"
+            ;
+            gap: 50px;
+        }
+        .header {
+            grid-area: header;
+        }
+        .banner1 {
+            grid-area: banner1;
+        }
+        .banner2 {
+            grid-area: banner2;
+        }
+        .sidebar1 {
+            grid-area: sidebar1;
+        }
+        .sidebar2 {
+            grid-area: sidebar2;
+        }
+        .footer {
+            grid-area: footer;
+        }
+        .main1 {
+            grid-area: main1;
+        }
+        .main2 {
+            grid-area: main2;
+        }
+        .main3 {
+            grid-area: main3;
+        }
+        .wrapper>div {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="header"></div>
+        <div class="banner1"></div>
+        <div class="banner2"></div>
+        <div class="sidebar1"></div>
+        <div class="sidebar2"></div>
+        <div class="footer"></div>
+        <div class="main1"></div>
+        <div class="main2"></div>
+        <div class="main3"></div>
+
+    </div>
+    
+</body>
+</html>
