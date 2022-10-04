@@ -49,7 +49,7 @@
         height: 5vh;
       }
       .menu__item:hover {
-        background: #727a97;
+        background: #ececee;
         border-right: 3px solid #6d0a0a;
         border-radius: 7px 0 0 7px;
       }
@@ -90,11 +90,15 @@
         width: 150px;
         height: 30px;
         border-radius: 10px;
-        color: #6d0a0a;
+        color: #1d1111;
+        outline: none;
+        border: .5px solid black;
+        background-color: #b5bbc0;
       }
       .projects__button:hover {
-        background: #1534a7;
+        background: #ececee;
         cursor: pointer;
+        border: 1px solid black;
       }
       .inbox {
         background: #fcfcfc;
@@ -109,16 +113,54 @@
       .titl {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         height: 60px;
       }
+      .titl__name {
+        font-size: 1.75rem;
+        font-weight: 500;
+      }
       .titl__button {
+        width: 30px;
         height: 30px;
-        margin-top: 20px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background-color: #fff;
+        cursor: pointer;
+        font-size: 18px;
       }
       .inbox__navigation {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         height: 35px;
+        border-radius: 10px;
+        background: #b5bbc0;
+        align-items: center;
+      }
+      .inbox__navigation--left {
+        background: #fff;
+        cursor: pointer;
+        width: 48%;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        height: 30px;
+      }
+      .inbox__navigation--left:hover {
+        border: 1.3px solid grey;
+      }
+      .inbox__navigation--right {
+        background: #b5bbc0;
+        cursor: pointer;
+        width: 48%;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        height: 30px;
+      }
+      .inbox__navigation--right:hover {
+        border: 1.3px solid grey;
+        background: #fff;
       }
       .contacts {
         flex-direction: column;
@@ -167,32 +209,92 @@
       }
       .name__avatar {
         color: rgb(0, 0, 0);
-        text-align: center;
-        background: #697b86;
         height: 40px;
         width: 40px;
         border-radius: 50%;
+        background-image: url(https://t3.ftcdn.net/jpg/01/30/07/78/360_F_130077836_oHT16zufpK8563QmYi4MTw0a34P096Mo.jpg);
+        background-size: cover;
+        object-fit: cover;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: end;
+        align-items: flex-end;
+      }
+      .name__avatar--status {
+        background-color: green;
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        border: 1px solid white;
       }
       .name__fullname {
         font-size: 13px;
         font-weight: bold;
       }
       .name__status {
-        font-size: 9px;
+        font-size: 10px;
       }
-      .name__search {
+      .search {
         width: 100%;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: end;
       }
-      .buttons {
+      .search__box {
+        height: 30px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        outline: none;
+        background-color: rgb(214, 214, 218);
         display: flex;
-        padding-top: 5px;
+        justify-content: center;
+      }
+      .search__btn {
+        color: gray;
+        float: right;
+        width: 30px;
+        height: 28px;
+        border-radius: 10px;
+        background-color: rgb(214, 214, 218);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+      .search__input {
+        height: 28px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        font-size: 13px;
+        transition: 0, 4s;
+        line-height: 40px;
+        width: 180px;
+        background-color: rgb(214, 214, 218);
+      }
+      .button__microphone,
+      .button__video,
+      .button__menu{
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background-color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        margin-left: 6px;
+      }
+      .button__microphone:hover {
+        border: 1.5px solid black;
+      }
+      .button__video:hover {
+        border: 1.5px solid black;
+      }
+      .titl__button:hover {
+        border: 1.5px solid black;
+      }
+      .button__menu:hover{
+        border: 1.5px solid black;
       }
       .name__section {
         padding: 10px 0 10px 10px;
@@ -218,14 +320,25 @@
         width: 200px;
         margin-bottom: 0.5rem;
       }
-      .panel {
+      .menuchat {
         background: #fcfcfc;
-        width: 48px;
+        width: 50px;
         height: 100%;
         position: absolute;
         top: 0;
         left: 1300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
+      .menuchat__options,
+      .menuchat__info{
+        margin-top: 10px;
+      }
+      .button__menu{
+        margin-bottom: 10px;
+      }
+
     </style>
   </head>
   <body>
@@ -243,7 +356,7 @@
           <li class="menu__item">
             <a class="menu__link" href="">
               <span class="menu__icon">
-                <i class="las la-paste"></i>
+                <i class="las la-clock"></i>
               </span>
               <span class="menu__text">Dashboard</span>
             </a>
@@ -251,7 +364,7 @@
           <li class="menu__item">
             <a class="menu__link" href="">
               <span class="menu__icon">
-                <i class="las la-paste"></i>
+                <i class="las la-chart-bar"></i>
               </span>
               <span class="menu__text">Statistic</span>
             </a>
@@ -259,7 +372,7 @@
           <li class="menu__item menu__item--active">
             <a class="menu__link menu__list--active" href="">
               <span class="menu__icon">
-                <i class="las la-paste"></i>
+                <i class="las la-info"></i>
               </span>
               <span class="menu__text">Support</span>
             </a>
@@ -267,7 +380,7 @@
           <li class="menu__item">
             <a class="menu__link" href="">
               <span class="menu__icon">
-                <i class="las la-paste"></i>
+                <i class="las la-vr-cardboard"></i>
               </span>
               <span class="menu__text">Inbox</span>
             </a>
@@ -275,7 +388,7 @@
           <li class="menu__item">
             <a class="menu__link" href="">
               <span class="menu__icon">
-                <i class="las la-paste"></i>
+                <i class="las la-rocket"></i>
               </span>
               <span class="menu__text">Goals</span>
             </a>
@@ -283,7 +396,7 @@
           <li class="menu__item">
             <a class="menu__link" href="">
               <span class="menu__icon">
-                <i class="las la-paste"></i>
+                <i class="las la-link"></i>
               </span>
               <span class="menu__text">Links</span>
             </a>
@@ -334,19 +447,26 @@
         <header class="name">
           <div class="name__nameinfo">
             <div class="name__logo">
-              <div class="name__avatar"></div>
+              <div class="name__avatar">
+                <div class="name__avatar--status"></div>
+              </div>
             </div>
             <div class="name__name">
               <div class="name__fullname">Michael.B</div>
               <div class="name__status">Online</div>
             </div>
           </div>
-          <div class="name__search">
-            <nav class="name__searching">
-              <input type="text" placeholder="Search" size="10" />
-            </nav>
-            <button class="name__searchbutton">
+          <div class="search">
+            <div class="search__box">
+              <input class="search__input" type="text" placeholder="Search" />
+              <a class="search__btn" href="#">
+                <i class="las la-search"></i>
+              </a>
+            </div>
+            <button class="button__microphone">
               <i class="las la-microphone"></i>
+            </button>
+            <button class="button__video">
               <i class="las la-video"></i>
             </button>
           </div>
@@ -387,7 +507,32 @@
           <div class="text__massege">bx xv</div>
         </section>
       </div>
-      <div class="panel"></div>
+      
+      <div class="panel">
+
+
+
+
+      </div>
     </main>
+
+  <section class="menuchat">
+    <div class="menuchat__options">
+      <button class="button__menu">
+        <i class="las la-ellipsis-v"></i>
+      </button>
+    </div>
+    <div class="menuchat__info">
+      <button class="button__menu">
+        <i class="las la-info-circle"></i>
+      </button>
+      <button class="button__menu">
+        <i class="lar la-bell-slash"></i>
+      </button>
+      <button class="button__menu">
+        <i class="las la-trash-alt"></i>
+      </button>
+    </div>
+</section>
   </body>
 </html>
