@@ -74,35 +74,35 @@
           "div3 div3 div5"
           "div6 div7 div8";
         gap: 10px;
-        
       }
-      @media(max-width: 768px){
-            .div4{
-                display: none;
-            }.div2{
-                display: none;
-            }
-            .div5{
-                display: none;
-            }.div8{
-                display: none;
-            }
-            .div1{
-                width: 100%;
-            }
-            .div3{
-                width: 100%;
-                height: 100vh;
-            }
-            .div6{
-                width: 100%;
-                height: 100vh;
-            }
-            .div7{
-                width: 100%;
-                height: 100vh;
-            }
+      @media (max-width: 768px) {
+        .wrapper {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 200px 1fr 100px;
+          grid-template-areas:
+            "div1"
+            "div3"
+            "div6";
+          gap: 10px;
         }
+        .div1 {
+          width: 100%;
+        }
+        .div3 {
+          width: 100%;
+        }
+        .div6 {
+          width: 100%;
+        }
+        .div2,
+        .div4,
+        .div7,
+        .div8,
+        .div5 {
+          display: none;
+        }
+      }
     </style>
   </head>
 
