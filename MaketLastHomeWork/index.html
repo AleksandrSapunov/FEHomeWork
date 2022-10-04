@@ -273,7 +273,8 @@
         background-color: rgb(214, 214, 218);
       }
       .button__microphone,
-      .button__video {
+      .button__video,
+      .button__menu{
         width: 30px;
         height: 30px;
         border-radius: 10px;
@@ -283,7 +284,6 @@
         font-size: 14px;
         margin-left: 6px;
       }
-
       .button__microphone:hover {
         border: 1.5px solid black;
       }
@@ -293,7 +293,9 @@
       .titl__button:hover {
         border: 1.5px solid black;
       }
-
+      .button__menu:hover{
+        border: 1.5px solid black;
+      }
       .name__section {
         padding: 10px 0 10px 10px;
         font-size: 14px;
@@ -318,14 +320,25 @@
         width: 200px;
         margin-bottom: 0.5rem;
       }
-      .panel {
+      .menuchat {
         background: #fcfcfc;
-        width: 48px;
+        width: 50px;
         height: 100%;
         position: absolute;
         top: 0;
         left: 1300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
+      .menuchat__options,
+      .menuchat__info{
+        margin-top: 10px;
+      }
+      .button__menu{
+        margin-bottom: 10px;
+      }
+
     </style>
   </head>
   <body>
@@ -494,7 +507,32 @@
           <div class="text__massege">bx xv</div>
         </section>
       </div>
-      <div class="panel"></div>
+      
+      <div class="panel">
+
+
+
+
+      </div>
     </main>
+
+  <section class="menuchat">
+    <div class="menuchat__options">
+      <button class="button__menu">
+        <i class="las la-ellipsis-v"></i>
+      </button>
+    </div>
+    <div class="menuchat__info">
+      <button class="button__menu">
+        <i class="las la-info-circle"></i>
+      </button>
+      <button class="button__menu">
+        <i class="lar la-bell-slash"></i>
+      </button>
+      <button class="button__menu">
+        <i class="las la-trash-alt"></i>
+      </button>
+    </div>
+</section>
   </body>
 </html>
