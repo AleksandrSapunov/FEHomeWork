@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid</title>
+    <style>
+      /* .item{
+            background: gold;
+            font-size: 4rem;
+        }
+        .wrapper{
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            grid-template-rows: repeat(2, 150px);
+            grid-gap: 10px;
+            grid-auto-flow: column;
+        }
+        .item1{
+            grid-column-start: 3;
+            grid-row-start: 2;
+
+        } */
+      html,
+      body,
+      .wrapper {
+        height: 100%;
+        background-color: aqua;
+      }
+      body {
+        margin: 0;
+        background-color: aqua;
+      }
+      .div1 {
+        background: blue;
+        grid-area: div1;
+      }
+      .div2 {
+        background: blue;
+        grid-area: div2;
+      }
+      .div3 {
+        background: blue;
+        grid-area: div3;
+      }
+      .div4 {
+        background: blue;
+        grid-area: div4;
+      }
+      .div5 {
+        background: blue;
+        grid-area: div5;
+      }
+      .div6 {
+        background: blue;
+        grid-area: div6;
+      }
+      .div7 {
+        background: blue;
+        grid-area: div7;
+      }
+      .div8 {
+        background: blue;
+        grid-area: div8;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 200px 1fr 1fr 100px;
+        grid-template-areas:
+          "div1 div1 div2"
+          "div3 div3 div4"
+          "div3 div3 div5"
+          "div6 div7 div8";
+        gap: 10px;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="div1"></div>
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="div4"></div>
+      <div class="div5"></div>
+      <div class="div6"></div>
+      <div class="div7"></div>
+      <div class="div8"></div>
+    </div>
+  </body>
+</html>
