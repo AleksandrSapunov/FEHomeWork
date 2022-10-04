@@ -92,7 +92,7 @@
         border-radius: 10px;
         color: #1d1111;
         outline: none;
-        border: .5px solid black;
+        border: 0.5px solid black;
         background-color: #b5bbc0;
       }
       .projects__button:hover {
@@ -185,6 +185,8 @@
         width: 800px;
         height: 100%;
         position: absolute;
+        display: flex;
+        flex-direction: column;
         top: 0;
         left: 500px;
       }
@@ -274,7 +276,7 @@
       }
       .button__microphone,
       .button__video,
-      .button__menu{
+      .button__menu {
         width: 30px;
         height: 30px;
         border-radius: 10px;
@@ -283,6 +285,16 @@
         cursor: pointer;
         font-size: 14px;
         margin-left: 6px;
+      }
+      .button__menu--active {
+        color: white;
+        background-color: blue;
+        width: 33px;
+        height: 33px;
+      }
+      .button__menu--active:hover {
+        color: blue;
+        background-color: rgb(231, 231, 231);
       }
       .button__microphone:hover {
         border: 1.5px solid black;
@@ -293,7 +305,7 @@
       .titl__button:hover {
         border: 1.5px solid black;
       }
-      .button__menu:hover{
+      .button__menu:hover {
         border: 1.5px solid black;
       }
       .name__section {
@@ -332,13 +344,33 @@
         justify-content: space-between;
       }
       .menuchat__options,
-      .menuchat__info{
+      .menuchat__info {
         margin-top: 10px;
       }
-      .button__menu{
+      .button__menu {
         margin-bottom: 10px;
       }
+      .panel {
+        width: 800px;
+        height: 70px;
+        background: linear-gradient(300deg, #5e7f8a6e, transparent);
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        margin-left: 500px;
+        margin-top: 600px;
+        padding: 10px;
+      }
 
+      .input__massage {
+        height: 60px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        font-size: 13px;
+        width: 480px;
+        background-color: #5e7f8a6e;
+      }
     </style>
   </head>
   <body>
@@ -441,6 +473,9 @@
           <div class="contacts__list"></div>
           <div class="contacts__list"></div>
           <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
+          <div class="contacts__list"></div>
         </section>
       </div>
       <div class="chat">
@@ -504,35 +539,65 @@
           <div class="text__massege">xbxcvx</div>
           <div class="text__massege">xbxv</div>
           <div class="text__massege">xbx</div>
-          <div class="text__massege">bx xv</div>
+          <audio controls>
+            <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3
+            WAV file Sample" type="audio/mpeg">
+          </audio>
+          <div class="video" src="https://www.youtube.com/embed/__-vp0g_BhA">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/__-vp0g_BhA"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </section>
       </div>
-      
+
       <div class="panel">
-
-
-
-
+        <div class="panel__input">
+          <input
+            class="input__massage"
+            type="text"
+            name="massage"
+            id="#"
+            placeholder="Write a massage "
+          />
+        </div>
+        <div class="panel__button">
+          <button class="button__menu">
+            <i class="las la-image"></i>
+          </button>
+          <button class="button__menu">
+            <i class="las la-microphone"></i>
+          </button>
+          <button class="button__menu button__menu--active">
+            <i class="lar la-paper-plane"></i>
+          </button>
+        </div>
       </div>
     </main>
 
-  <section class="menuchat">
-    <div class="menuchat__options">
-      <button class="button__menu">
-        <i class="las la-ellipsis-v"></i>
-      </button>
-    </div>
-    <div class="menuchat__info">
-      <button class="button__menu">
-        <i class="las la-info-circle"></i>
-      </button>
-      <button class="button__menu">
-        <i class="lar la-bell-slash"></i>
-      </button>
-      <button class="button__menu">
-        <i class="las la-trash-alt"></i>
-      </button>
-    </div>
-</section>
+    <section class="menuchat">
+      <div class="menuchat__options">
+        <button class="button__menu">
+          <i class="las la-ellipsis-v"></i>
+        </button>
+      </div>
+      <div class="menuchat__info">
+        <button class="button__menu">
+          <i class="las la-info-circle"></i>
+        </button>
+        <button class="button__menu">
+          <i class="lar la-bell-slash"></i>
+        </button>
+        <button class="button__menu">
+          <i class="las la-trash-alt"></i>
+        </button>
+      </div>
+    </section>
   </body>
 </html>
