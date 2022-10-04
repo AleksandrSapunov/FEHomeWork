@@ -1,86 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grid</title>
     <style>
-        html,
-        body,
-        .wrapper{
-            height: 100%;
-            background: rgb(178, 130, 190);
-        }
-        body{
-            margin: 0;
-        }
-        header{
-            background: grey;
-            grid-area: header;
-        }
-        aside{
-            background: green;
-            grid-area: aside;
-        }
-        main{
+      /* .item{
             background: gold;
-            grid-area: main;
-        }
-        nav{
-            background: rgb(138, 17, 112);
-            grid-area: nav;
-        }
-        footer{
-            background: red;
-            grid-area: footer;
-        }
-        menu{
-            background: rgb(101, 177, 95);
-            grid-area: menu;
-            margin: 0;
-        }
-        div{
-            background: rgb(185, 96, 12);
-            grid-area: div;
-        }
-        article{
-            background: rgb(17, 14, 14);
-            grid-area: article;
+            font-size: 4rem;
         }
         .wrapper{
             display: grid;
-            grid-template-columns:1fr 1fr 1fr 1fr;
-            grid-template-rows:  33% 33% 1fr;
-            grid-template-areas: 
-            "aside header header article"
-            "aside nav main menu"
-            "aside footer div menu"
-           ;
-           grid-gap: 10px;
+            grid-template-columns:repeat(3, 1fr);
+            grid-template-rows: repeat(2, 150px);
+            grid-gap: 10px;
+            grid-auto-flow: column;
         }
+        .item1{
+            grid-column-start: 3;
+            grid-row-start: 2;
 
+        } */
+      html,
+      body,
+      .wrapper {
+        height: 100%;
+        background-color: aqua;
+      }
+      body {
+        margin: 0;
+        background-color: aqua;
+      }
+      .div1 {
+        background: blue;
+        grid-area: div1;
+      }
+      .div2 {
+        background: blue;
+        grid-area: div2;
+      }
+      .div3 {
+        background: blue;
+        grid-area: div3;
+      }
+      .div4 {
+        background: blue;
+        grid-area: div4;
+      }
+      .div5 {
+        background: blue;
+        grid-area: div5;
+      }
+      .div6 {
+        background: blue;
+        grid-area: div6;
+      }
+      .div7 {
+        background: blue;
+        grid-area: div7;
+      }
+      .div8 {
+        background: blue;
+        grid-area: div8;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 200px 1fr 1fr 100px;
+        grid-template-areas:
+          "div1 div1 div2"
+          "div3 div3 div4"
+          "div3 div3 div5"
+          "div6 div7 div8";
+        gap: 10px;
+        
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <aside>aside</aside>
-
-       <header>header</header>
-       <article>foto</article>
-
-       <main>main</main>
-       <nav>nav</nav>
-
-       
-       <menu>menu</menu>
-
-       <div>button</div>
-       <footer>footer</footer>
-        
-        
+      <div class="div1"></div>
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="div4"></div>
+      <div class="div5"></div>
+      <div class="div6"></div>
+      <div class="div7"></div>
+      <div class="div8"></div>
     </div>
-   
-</body>
+  </body>
 </html>
