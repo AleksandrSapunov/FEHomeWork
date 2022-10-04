@@ -6,22 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grid</title>
     <style>
-      /* .item{
-            background: gold;
-            font-size: 4rem;
-        }
-        .wrapper{
-            display: grid;
-            grid-template-columns:repeat(3, 1fr);
-            grid-template-rows: repeat(2, 150px);
-            grid-gap: 10px;
-            grid-auto-flow: column;
-        }
-        .item1{
-            grid-column-start: 3;
-            grid-row-start: 2;
-
-        } */
       html,
       body,
       .wrapper {
@@ -32,36 +16,31 @@
         margin: 0;
         background-color: aqua;
       }
+      .wrapper div {
+        background-color: blue;
+      }
       .div1 {
-        background: blue;
         grid-area: div1;
       }
       .div2 {
-        background: blue;
         grid-area: div2;
       }
       .div3 {
-        background: blue;
         grid-area: div3;
       }
       .div4 {
-        background: blue;
         grid-area: div4;
       }
       .div5 {
-        background: blue;
         grid-area: div5;
       }
       .div6 {
-        background: blue;
         grid-area: div6;
       }
       .div7 {
-        background: blue;
         grid-area: div7;
       }
       .div8 {
-        background: blue;
         grid-area: div8;
       }
       .wrapper {
@@ -77,7 +56,6 @@
       }
       @media (max-width: 768px) {
         .wrapper {
-          display: grid;
           grid-template-columns: 1fr;
           grid-template-rows: 200px 1fr 100px;
           grid-template-areas:
@@ -86,12 +64,8 @@
             "div6";
           gap: 10px;
         }
-        .div1 {
-          width: 100%;
-        }
-        .div3 {
-          width: 100%;
-        }
+        .div1,
+        .div3,
         .div6 {
           width: 100%;
         }
